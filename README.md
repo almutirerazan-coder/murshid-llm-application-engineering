@@ -17,12 +17,13 @@ People often ask the same few questions about a service ("How do I check my appl
 | 1 | Foundations | Synthetic directory, `FakeClient` mock, `ask()` and the response contract | [baseline_results.json](results/core/baseline_results.json) — three known answers; blank input adds no mock call |
 | 2 | Structure and tools | Validated ticket, read-only status lookup, ownership (authorization) check | [day2_results.json](results/core/day2_results.json) — five scenarios; no unauthorized status disclosure |
 | 3 | Guards and evaluation | Versioned prompt artifact, input guards, one pipeline, ten golden test cases | [day3_results.json](results/core/day3_results.json) — 10/10 golden cases passed |
-| 4 | Cache and final project | _coming next_ | |
+| 4 | Cache and final project | Exact cache for public answers, time measurements, regression run, export | [day4_results.json](results/core/day4_results.json) — 3 → 1 mock calls, 66.7% cache hits · [final_report.json](results/core/final_report.json) |
 
 ## Repository contents
 - [`notebooks/murshid.ipynb`](notebooks/murshid.ipynb) — the single cumulative project notebook (all core days, with outputs)
 - [`results/core/`](results/core) — JSON results produced by running the notebook
 - [`homework/`](homework) — separate homework notebooks
+- [`docs/project-notes.md`](docs/project-notes.md) — design, data fields, pipeline, tests and limitations
 
 ## Homework completed
 - [Day 2 — tools](homework/day2_tools.ipynb): validate and dispatch structured tool calls (standard library)
@@ -32,6 +33,26 @@ People often ask the same few questions about a service ("How do I check my appl
 1. Open [Google Colab](https://colab.research.google.com/) → **File → Upload notebook** → choose `notebooks/murshid.ipynb`.
 2. Runtime: Python 3, **CPU** (no GPU). Nothing to install — standard library only, no API key, no downloads.
 3. **Runtime → Run all.** Each day's final cell prints `"checks": "passed"` and JSON files appear in `murshid_outputs/`.
+
+## Example inputs and outputs
+| Input | Behaviour |
+|---|---|
+| `How can I check my application status?` | Known answer from the service directory (`mode=mock`) |
+| `كيف أتابع طلبي؟` | Same answer in Arabic |
+| Empty / blank input | Rejected **before** any mock call |
+| Status for a reference owned by another user | Refused — no status disclosed |
+| Same public question asked 3 times | 1 mock call, then 2 cache hits |
+
+## Tests and results
+- 10/10 golden behavioural cases passed (Day 3, re-run as a regression on Day 4).
+- Cache: 3 → 1 mock calls, 66.7% hit rate, 0 external API calls.
+- All results were compared with the course's reference results and match.
+
+## Limitations and future work
+- The "model" is a fixed mapping; it does not measure real LLM quality.
+- Token counts on Day 4 are hypothetical, for the cost arithmetic only.
+- Not production security; authorization uses a small synthetic fixture.
+- Future: connect a real model behind the same interface and re-run the same tests; add more Arabic paraphrases.
 
 ---
 Attribution: built as coursework for **LLM Application Engineering — SDA-AIE-213** (SDAIA Academy training context), instructor **Meaad Al-Marri**. This link is attribution only, not a claim of endorsement.
