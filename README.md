@@ -22,12 +22,19 @@ People often ask the same few questions about a service ("How do I check my appl
 ## Repository contents
 - [`notebooks/murshid.ipynb`](notebooks/murshid.ipynb) — the single cumulative project notebook (all core days, with outputs)
 - [`results/core/`](results/core) — JSON results produced by running the notebook
+- [`results/day1/`](results/day1), [`results/day4/`](results/day4) — real-model homework results
 - [`homework/`](homework) — separate homework notebooks
 - [`docs/project-notes.md`](docs/project-notes.md) — design, data fields, pipeline, tests and limitations
 
 ## Homework completed
+- [Day 1 — real model](homework/day1_real_model.ipynb): one answer generated locally on CPU by `google/flan-t5-small` · [result](results/day1/live_demo_result.json)
 - [Day 2 — tools](homework/day2_tools.ipynb): validate and dispatch structured tool calls (standard library)
 - [Day 3 — errors](homework/day3_errors.ipynb): recognize input errors and correct them (standard library)
+- [Day 4 — evaluation](homework/day4_evaluation.ipynb): three paraphrased questions answered by the real model, with tokens and time recorded · [result](results/day4/evaluation_result.json)
+
+> The core project is a **mock** (`mode=mock`). The Day 1 and Day 4 homework use **actual local model inference** (`mode=real_local_model`, FLAN-T5 small on CPU, no API key, 0 external inference API calls).
+
+**My observations (real model):** for all three phrasings the model answered with the reference number ("Use its reference number" / "Reference number"), so 3/3 keyword hits. This is a simple keyword check, not proof of semantic accuracy; answers are short and must still be reviewed for invented fees, dates or statuses.
 
 ## How to run
 1. Open [Google Colab](https://colab.research.google.com/) → **File → Upload notebook** → choose `notebooks/murshid.ipynb`.
