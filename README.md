@@ -15,17 +15,17 @@ People often ask the same few questions about a service ("How do I check my appl
 | Day | Topic | What was built | Result |
 |---|---|---|---|
 | 1 | Foundations | Synthetic directory, `FakeClient` mock, `ask()` and the response contract | [baseline_results.json](results/core/baseline_results.json) — three known answers; blank input adds no mock call |
-| 2 | Structure and tools | _coming next_ | |
+| 2 | Structure and tools | Validated ticket, read-only status lookup, ownership (authorization) check | [day2_results.json](results/core/day2_results.json) — five scenarios; no unauthorized status disclosure |
 | 3 | Guards and evaluation | _coming next_ | |
 | 4 | Cache and final project | _coming next_ | |
 
 ## Repository contents
 - [`notebooks/murshid.ipynb`](notebooks/murshid.ipynb) — the single cumulative project notebook (all core days, with outputs)
 - [`results/core/`](results/core) — JSON results produced by running the notebook
-
+- [`homework/`](homework) — separate homework notebooks
 
 ## Homework completed
-- _None yet._
+- [Day 2 — tools](homework/day2_tools.ipynb): validate and dispatch structured tool calls (standard library)
 
 ## How to run
 1. Open [Google Colab](https://colab.research.google.com/) → **File → Upload notebook** → choose `notebooks/murshid.ipynb`.
