@@ -16,7 +16,7 @@ People often ask the same few questions about a service ("How do I check my appl
 |---|---|---|---|
 | 1 | Foundations | Synthetic directory, `FakeClient` mock, `ask()` and the response contract | [baseline_results.json](results/core/baseline_results.json) — three known answers; blank input adds no mock call |
 | 2 | Structure and tools | Validated ticket, read-only status lookup, ownership (authorization) check | [day2_results.json](results/core/day2_results.json) — five scenarios; no unauthorized status disclosure |
-| 3 | Guards and evaluation | _coming next_ | |
+| 3 | Guards and evaluation | Versioned prompt artifact, input guards, one pipeline, ten golden test cases | [day3_results.json](results/core/day3_results.json) — 10/10 golden cases passed |
 | 4 | Cache and final project | _coming next_ | |
 
 ## Repository contents
@@ -26,6 +26,7 @@ People often ask the same few questions about a service ("How do I check my appl
 
 ## Homework completed
 - [Day 2 — tools](homework/day2_tools.ipynb): validate and dispatch structured tool calls (standard library)
+- [Day 3 — errors](homework/day3_errors.ipynb): recognize input errors and correct them (standard library)
 
 ## How to run
 1. Open [Google Colab](https://colab.research.google.com/) → **File → Upload notebook** → choose `notebooks/murshid.ipynb`.
